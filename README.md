@@ -27,3 +27,5 @@ United States Geological Survey. (2019, February 29). Groundwater quality in pri
 Ren, M., Qian, X., Chen, Y., Wang, T., &amp; Zhao, Y. (2022). Potential lead toxicity and leakage issues on lead halide perovskite photovoltaics. Journal of Hazardous Materials, 426, 127848. https://doi.org/10.1016/j.jhazmat.2021.127848 
 
 Nir, Sarah Maslin. “He Set Up a Big Solar Farm. His Neighbors Hated It.” The New York Times, 18 Mar. 2020. https://www.nytimes.com/2020/03/18/nyregion/solar-energy-farms-ny.html. 
+
+Rosen, Ellen. “As Demand for Green Energy Grows, Solar Farms Face Local Resistance”. The New York Times, 2 Nov 2021. https://www.nytimes.com/2021/11/02/business/solar-farms-resistance.html.
