@@ -19,7 +19,7 @@ with the purpose of helping stakeholders make informed decisions about the best 
 1. https://waterdata.usgs.gov/nwis/gwExplanation
 ⋅⋅1. Explanation of Groundwater Level Records https://pubs.usgs.gov/wdr/2005/wdr-wa-05-1/pdf/wa00103ADR2005_BookK.pdf
 https://help.waterdata.usgs.gov/tutorials/groundwater-data/how-do-i-access-real-time-groundwater-data
-
+https://data.ny.gov/Energy-Environment/Statewide-Solar-Projects-Beginning-2000/wgsj-jt5f
 ## Bibliography
 
 United States Geological Survey. (2019, February 29). Groundwater quality in principal aquifers of the nation, 1991–2010 completed. Groundwater Quality in Principal Aquifers of the Nation, 1991–2010 | U.S. Geological Survey. Retrieved April 30, 2022, from https://www.usgs.gov/mission-areas/water-resources/science/groundwater-quality-principal-aquifers-nation-1991-2010 

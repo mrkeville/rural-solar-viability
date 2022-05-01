@@ -16,9 +16,11 @@ import json
 import requests
 #%%
 
-## Reading in data and setting the index to tract level
+## Reading in data and setting the index to the project ID
 
-pd.read.csv("", index="")
+pd.read.csv("Statewide_Solar_Projects_Beginning_2000.csv", index="Project ID")
+
+
 
 
 
