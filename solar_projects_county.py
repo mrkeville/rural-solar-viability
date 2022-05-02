@@ -34,4 +34,10 @@ print(date_project['Schenectady'])
 solar['Year']=pd.DatetimeIndex(solar['Interconnection Date']).year
 print(solar['Year'])
 
+solar.to_csv()
 
+print(solar['Year'].sum(project_count['Schenectady']))
+
+#drawing a figure showing change in number of projects per county and over time
+fig1, ax1=plt.subplots(dpi=300)
+sns.barplot(data=solar,x="County",y=)
