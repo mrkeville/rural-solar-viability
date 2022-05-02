@@ -28,7 +28,10 @@ project_count=solar['Number of Projects']
 print(project_count.sum())
 print(project_count['Schenectady'].sum())
 
+date_project=solar['Interconnection Date']
+print(date_project['Schenectady'])
 
-
+solar['Year']=pd.DatetimeIndex(solar['Interconnection Date']).year
+print(solar['Year'])
 
 
