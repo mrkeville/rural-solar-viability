@@ -16,9 +16,17 @@ import json
 import requests
 #%%
 
-## Reading in data and setting the index to the project ID
+## Reading in data
 
-pd.read.csv("Statewide_Solar_Projects_Beginning_2000.csv", index="Project ID")
+solar=pd.read_csv("Statewide_Solar_Projects__Beginning_2000.csv")
+solar=solar.set_index('County')
+#%%
+
+## plotting number of solar projects per county and over time
+
+project_count=solar['Number of Projects']
+print(project_count.sum())
+print(project_count['Schenectady'].sum())
 
 
 

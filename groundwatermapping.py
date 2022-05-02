@@ -16,3 +16,8 @@ import json
 import requests
 #%%
 
+#%%
+
+## Reading in data and setting the index to tract level
+
+pd.read.csv("", index="")
