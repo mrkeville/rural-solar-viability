@@ -19,25 +19,40 @@ import requests
 ## Reading in data
 
 solar=pd.read_csv("Statewide_Solar_Projects__Beginning_2000.csv")
-solar=solar.set_index('County')
+solar_trim=solar[["County",'Project ID',"Interconnection Date",'Number of Projects']]
+solar_trim=solar_trim.set_index('County')
+
+#solar=solar.drop(solar['Data Through Date','Utility','City/Town','Zip','Division','Substation','Circuit ID','Developer','Metering Method','Estimated PV System Size (kWdc)','PV System Size (kWac)','Estimated Annual PV Energy Production (kWh)','Energy Storage System Size (kWac)']
 #%%
 
-## plotting number of solar projects per county and over time
+#summing projects per county
 
-project_count=solar['Number of Projects']
+project_count=solar_trim['Number of Projects'].sum()
 print(project_count.sum())
 print(project_count['Schenectady'].sum())
+sch_tot=project_count['Schenectady'].sum()
 
-date_project=solar['Interconnection Date']
+#%%
+date_project=solar_trim['Interconnection Date']
 print(date_project['Schenectady'])
 
-solar['Year']=pd.DatetimeIndex(solar['Interconnection Date']).year
-print(solar['Year'])
+solar_trim['Year']=pd.DatetimeIndex(solar_trim['Interconnection Date']).year
+print(solar_trim['Year'])
 
-solar.to_csv()
+#%%
+for c in solar_trim['County']:
+    solar_trim['Number of Projects'].sum
+    
+    
+#%%
 
-print(solar['Year'].sum(project_count['Schenectady']))
+solar_trim.to_csv('solar.csv')
 
+#print(solar['Year'].sum(project_count['Schenectady']))
+#%%
 #drawing a figure showing change in number of projects per county and over time
 fig1, ax1=plt.subplots(dpi=300)
-sns.barplot(data=solar,x="County",y=)
+solar.plot.barh("County","Number of Projects",ax=ax1)
+ax1.set_title('Number of Solar Projects per County, 2000-2021')
+fig1.tight_layout()
+fig1.savefig('projects_by_county.png',dpi=300)
