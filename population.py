@@ -17,51 +17,15 @@ import requests
 
 #%%
 
-co-est2021-alldata
+## Reading in census population data
 
-# =============================================================================
-# #%%
-# 
-# ## Setting up the variable list 
-# 
-# var_info=pd.read_csv('census-variables.csv')
-# 
-# var_name=var_info['variable'].to_list()
-# 
-# var_list=['NAME']+var_name
-# 
-# var_string=','.join(var_list)
-# 
-# #%%
-# 
-# ## API Call for ACS 2020 5 Year Data
-# 
-# api = 'https://api.census.gov/data/2020/acs/acs5'
-# 
-# for_clause='county:*'
-# 
-# in_clause='state:36'
-# 
-# key_value='85274c1d9323d846593ef42b16dc7ae9ea883936'
-# 
-# payload={'get':var_string,'for':for_clause, 'in':in_clause, 'key':key_value}
-# 
-# response=requests.get(api,payload)
-# 
-# if response.status_code==200:
-#     print( '\n' )
-#     print( 'url:', response.url )
-# else:
-#     print( 'status:', response.status_code )
-#     print( response.text )
-#     assert False
-# 
-# row_list=response.json()
-# colnames=row_list[0]
-# datarows=row_list[1:]
-# 
-# attain=pd.DataFrame(columns=colnames, data=datarows)
-# attain.set_index('NAME', inplace=True)
-# 
-# attain.to_csv('census_data.csv')
-# =============================================================================
+pop=pd.read.csv("co-est2021-alldata.csv")
+
+## filtering to New York State
+nys = pop.query("STATE == '36'")
+
+## dropping columns
+
+nys = nys.drop(nys['UMLEV','REGION','DIVISION','ESTIMATEBASE2020','POPESTIMATE2020','NPOPCHG2020','NPOPCHG2021','BIRTHS2020','BIRTHS2021','DEATHS2020',	'DEATHS2021','NATURALCHG2020',	'NATURALCHG2021', 'INTERNATIONALMIG2020','INTERNATIONALMIG2021', 'DOMESTICMIG2020',	'DOMESTICMIG2021', 'NETMIG2020', 'NETMIG2021','RESIDUAL2020','RESIDUAL2021','GQESTIMATESBASE2020','GQESTIMATES2020', 'GQESTIMATES2021',	'RBIRTH2021','RDEATH2021','RNATURALCHG2021','RINTERNATIONALMIG2021', 'RDOMESTICMIG2021,	RNETMIG2021']
+
+nys.to_csv('2021_est_nys.csv')
