@@ -18,7 +18,7 @@ import requests
 
 ## Reading in data
 
-solar=pd.read_csv("Statewide_Solar_Projects__Beginning_2000.csv",low_memory=False)
+solar=pd.read_csv("Statewide_Solar_Projects__Beginning_2000.csv",dtype={'County':str})
 solar_trim=solar[["County",'Project ID',"Interconnection Date",'Number of Projects']]
 solar_trim=solar_trim.set_index('County')
 
