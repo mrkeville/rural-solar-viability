@@ -18,11 +18,12 @@ import requests
 
 ## Reading in data
 
-solar=pd.read_csv("Statewide_Solar_Projects__Beginning_2000.csv")
+solar=pd.read_csv("Statewide_Solar_Projects__Beginning_2000.csv",low_memory=False)
 solar_trim=solar[["County",'Project ID',"Interconnection Date",'Number of Projects']]
 solar_trim=solar_trim.set_index('County')
 
 #solar=solar.drop(solar['Data Through Date','Utility','City/Town','Zip','Division','Substation','Circuit ID','Developer','Metering Method','Estimated PV System Size (kWdc)','PV System Size (kWac)','Estimated Annual PV Energy Production (kWh)','Energy Storage System Size (kWac)']
+#{'Zip':str,'Estimated PV System Size (kWdc)':int,'Estimated Annual PV Energy Production (kWh)':int}
 #%%
 
 #summing projects per county
