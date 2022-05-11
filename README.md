@@ -1,10 +1,5 @@
 # rural-solar-viability
-
-The README.md file (any additional Markdown or PDF files if needed) should provide enough information that someone else could
-understand the purpose of the analysis and reproduce it from the underlying raw data. In particular, as a whole the documentation should: 
-(1)  concisely explain the purpose of the analysis; 
-(2) include instructions on how to obtain the original input data, such as where it can be downloaded or it should provide a script to
- download the data via an API; 
+ 
 (3) explain what each script does and the order in which they should be run; 
 (4) explain any additional files provided in the repository; and 
 (5) discuss the results.
@@ -64,28 +59,20 @@ The goal of this repository is not to dissuade rural stakeholders and decisionma
 - Map Image Files (.PNG)
     - NYS_Schenectady County_BlockGroups.png: shows a map of New York State with county boundaries, with Schenectady County highlighted in brown and displaying the block groups of that county
     - WaterWellProgram_NYS_County.png: shows a map of New York State with county boundaries, overlaid with well location data
-    - WaterWellProgram_NYS_Schenectady County_BlockGroups.png: shows a map of Schenectady County with block group boundaries, overlaid with well location data
-    - 
-
-## Running the repository
-
-
-
-
-
+    - WaterWellProgram_NYS_Schenectady County_Towns_BlockGroups.png: shows a map of Schenectady County with county subdivision (towns and cities) and  block group boundaries, overlaid with well location data
 
 ## Main Findings
 
 
 ## Further Analysis
 
-Futher analysis of this topic could examine the other environmental impacts of potential solar farm construction, using groundwater vulnerability assessment procedures as discussed by Focazio et al. (2002).
-could map out the use of land by property line, map out the topography of the land to understand the implications of solar farm construction on the 
-
-Wellwater data visualizations could be refined to shows the different attributes of each particular well (such as depth)
-
-
-
+Futher analysis of this topic could examine the other environmental impacts of potential solar farm construction, using groundwater vulnerability assessment procedures as discussed by Focazio et al. (2002). 
+This could include:
+    - Mapping out the use of land by property line to understand impact on residents
+    - Mapping out the topography and vegetation of the land to understand impact on the local environment (such as increased stormwater runoff and reduction of tree cover)
+    - Mapping out aquifer systems and surface level water bodies to understand the impact of contamination on the wider aquifer systems that feed groundwater wells
+    - Refining wellwater data visualizations to shows the different attributes of each particular well (such as depth)
+    - Visualizing data on changes in contaminate levels in areas ajacent to solar farms prior and after construction
 
 ## Bibliography
 
