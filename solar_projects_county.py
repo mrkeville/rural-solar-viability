@@ -16,20 +16,22 @@ import json
 import requests
 #%%
 
-## Reading in data
+## Reading in data and trimming the dataset to generate solar.csv
 
 solar=pd.read_csv("Statewide_Solar_Projects__Beginning_2000.csv",dtype={'County':str})
 solar_trim=solar[["County",'Project ID',"Interconnection Date",'Number of Projects']]
 solar_trim=solar_trim.set_index('County')
-
-#solar=solar.drop(solar['Data Through Date','Utility','City/Town','Zip','Division','Substation','Circuit ID','Developer','Metering Method','Estimated PV System Size (kWdc)','PV System Size (kWac)','Estimated Annual PV Energy Production (kWh)','Energy Storage System Size (kWac)']
-#{'Zip':str,'Estimated PV System Size (kWdc)':int,'Estimated Annual PV Energy Production (kWh)':int}
+solar_trim.to_csv('solar.csv')
 #%%
 
-#summing projects per county
+# Counts of Solar Projects
+
+#generating the total count of completed solar projects in New York State from 2000-2021
 
 project_count=solar_trim['Number of Projects'].sum()
 print(project_count.sum())
+
+
 print(project_count['Schenectady'].sum())
 sch_tot=project_count['Schenectady'].sum()
 
@@ -41,13 +43,16 @@ solar_trim['Year']=pd.DatetimeIndex(solar_trim['Interconnection Date']).year
 print(solar_trim['Year'])
 
 #%%
+
+#%%
 for c in solar_trim['County']:
     solar_trim['Number of Projects'].sum
     
     
 #%%
 
-solar_trim.to_csv('solar.csv')
+#solar=solar.drop(solar['Data Through Date','Utility','City/Town','Zip','Division','Substation','Circuit ID','Developer','Metering Method','Estimated PV System Size (kWdc)','PV System Size (kWac)','Estimated Annual PV Energy Production (kWh)','Energy Storage System Size (kWac)']
+#{'Zip':str,'Estimated PV System Size (kWdc)':int,'Estimated Annual PV Energy Production (kWh)':int}
 
 #print(solar['Year'].sum(project_count['Schenectady']))
 #%%

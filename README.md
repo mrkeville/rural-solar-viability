@@ -8,7 +8,7 @@ The purpose of this repository is to compile data on groundwater and solar farms
 
 In particular, this repository focuses on understanding the proxmity of individual water wells on private property to **existing** solar projects. Solar farms are an up-and-coming source of clean energy, which is vital to the nation's adoption of clean energy initatives. However, solar farms pose their own environmental drawbacks - land is often clear cut to make way for the panels, and the panels themselves are coated in chemicals that could contaminate the local groundwater. Groundwater is a vital source of freshwater for millions in the United States, and many who live in rural areas rely on wells to access groundwater. The construction of solar farms could threaten the potability of the groundwater resources of rual areas.
 
-The goal of this repository is not to dissuade rural stakeholders and decisionmakers from adopting solar energy, but to make informed choices on the construction of solar farms for the best possible environmental and public health outcomes.
+The goal of this repository is not to dissuade rural stakeholders and decisionmakers from adopting solar energy, but to provide information crucial to making informed choices on the construction of solar farms for the best possible environmental and public health outcomes.
 
 ### Inputs
 
@@ -89,7 +89,15 @@ The goal of this repository is not to dissuade rural stakeholders and decisionma
 
 ## Main Findings
 
+### New York State Overview:
 
+Number of Completed Solar Projects in New York State 2000-2021: 165,336
+County with Most Completed Solar Projects: 
+Year with Highest Number of Solar Projects Completed:
+
+### Schenectady County:
+
+Number of Completed Solar Projects in
 ## Further Analysis
 
 Futher analysis of this topic could examine the other environmental impacts of potential solar farm construction, using groundwater vulnerability assessment procedures as discussed by Focazio et al. (2002). 
