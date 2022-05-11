@@ -1,10 +1,8 @@
 # rural-solar-viability
- 
-(3) explain what each script does and the order in which they should be run; 
-(4) explain any additional files provided in the repository; and 
-(5) discuss the results.
 
-## Purpose of repository: Providing analysis of basic information to support decision makers involved in solar farm propagation in rural Upstate NY
+Author: Mary Rachel Keville
+
+## Purpose of repository
 
 The purpose of this repository is to compile data on groundwater and solar farms in Upstate New York. In particular, this repository focuses on understanding the proxmity of individual water wells on private property to **existing** solar projects.
 Solar farms are an up-and-coming source of clean energy, which is vital to the nation's adoption of clean energy initatives. However, solar farms pose their own environmental drawbacks - land is often clear cut to make way for the panels, and the panels themselves are coated in chemicals that could contaminate the local groundwater. 
@@ -16,7 +14,7 @@ The goal of this repository is not to dissuade rural stakeholders and decisionma
 
 - Cartographic boundary data from the US Census Bureau
     - How to access:
-        1. Visit https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html
+        1. Visit the US Census Bureau https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html
         2. Select the "2021" tab
         3. Scroll to each geography type's section on the page, select "New York" from the shapefile dropdown menu, and save the zip file to the repository:
             - Shapefiles:
@@ -26,40 +24,68 @@ The goal of this repository is not to dissuade rural stakeholders and decisionma
                    - Select "New York State" from shapefile dropdown menu 
                
                - Counties - 1:500,000 (national)
-                   - File name: cb_2021_36_bg_500k.zip
+                   - File name: cb_2021_us_county_500k.zip
                    - National file is only available
                
                - County Subdivisions - 1:500,0000 (state)
-                   - File name: cb_2021_36_bg_500k.zip
+                   - File name: cb_2021_36_cousub_500k.zip
                    - Select "New York State" from shapefile dropdown menu
 
-- Water wells locations and attribute data from the New York GIS Clearinghouse
-    - File name: WellWaterProgram.zip
-    - How to access:
-        1. Visit https://gis.ny.gov/gisdata/inventories/details.cfm?DSID=1203
-        2. Under the "Data Set Name" column of the table, click "Water Wells", and save the zip file to the repository
-        3. Notes: 
+- Water wells data from the New York GIS Clearinghouse
+    - Data on locations of water wells across New York State (last updated June 2021)
+        - Notes: 
             a. Dataset excludes well data from Nassau, Suffolk, Kings, and Queens counties (DEC Region 1)
             b. Data points may fall outside Census designated boundaries because of partial address data
+    - File name: WellWaterProgram.zip
+    - How to access:
+        1. Visit the New York GIS Clearinghouse at https://gis.ny.gov/gisdata/inventories/details.cfm?DSID=1203
+        2. Under the "Data Set Name" column of the table, click "Water Wells", and save the zip file to the repository
 
  - Solar project data from the NY-Sun Solar Program
-    - File name: Statewide_Solar_Projects_Beginning_2000.csv
+    - Data on completed solar projects from 2000-2021 in New York State
+    - File name: Statewide_Solar_Projects__Beginning_2000.csv
     - How to access: 
-        1. Visit https://data.ny.gov/Energy-Environment/Statewide-Solar-Projects-Beginning-2000/wgsj-jt5f
+        1. Visit the Open NY Data Portal at https://data.ny.gov/Energy-Environment/Statewide-Solar-Projects-Beginning-2000/wgsj-jt5f
         2. Click "Export" and select "CSV"
 
 ### Scripts and Files
 
-- groundwater_solar_mapping.qgz
+1. Run solar_projects_county.py
+    - Imports and cleans Statewide_Solar_Projects__Beginning_2000.csv, preparing it for use in the mapping stage of the repository
+    - Returns numbers on the number of solar projects:
+        - In New York State, by county
+        - In Schenectady County, by town and by year
+    - Removes all variables except
+        - County
+        - Project ID
+        - Interconnection Date
+        - Number of Projects
+    - Generates a clean version of the original data, solar.csv
+    
+2. Open groundwater_solar_mapping.qgz
     - Generates the .PNG map outputs using the Census, water well, and solar project data
-    - Filters
+    - Imports and filters Census shapefiles to desired state, counties, and block groups, generating new layers:
+        - County_Schenectady_NewYork
+            - Schenectady County boundary layer
+            - Formed from filtering cb_2021_us_county_500k.shp to the state level and the county level
+        - Countysub_Schenectady_NY
+            - Schenectady County subdivision boundary layer
+            - Formed from filtering cb_2021_36_cousub_500k.shp to the county level
+        - Countyblockgroup_Schenectady_NewYork
+            - Schenectady County block group boundary layer
+            - Formed from filtering cb_2021_36_bg_500k.shp to the county level
+    - Imports and filters Water Well Program data shapefile to the county level
+    - Imports and filters solar.csv file generated in Step 1 to the appropriate county level
     
 ### Outputs
 
-- Map Image Files (.PNG)
+- solar.csv: a cleaned version of Statewide_Solar_Projects__Beginning_2000.csv
+- Map Image Files
     - NYS_Schenectady County_BlockGroups.png: shows a map of New York State with county boundaries, with Schenectady County highlighted in brown and displaying the block groups of that county
     - WaterWellProgram_NYS_County.png: shows a map of New York State with county boundaries, overlaid with well location data
-    - WaterWellProgram_NYS_Schenectady County_Towns_BlockGroups.png: shows a map of Schenectady County with county subdivision (towns and cities) and  block group boundaries, overlaid with well location data
+    - WaterWellProgram_NYS_Schenectady County_Towns_BlockGroups.png: shows a map of Schenectady County with county subdivision (towns and cities) and block group boundaries, overlaid with well location data
+    - SolarFarm_NYS_County.png: shows a map of New York State with county boundaries, overlaid with solar farm data
+    - SolarFarm_NYS_Schenectady County_Towns_BlockGroups.png: shows a map of Schenectady County with county subdivision (towns and cities) and block group boundaries, overlaid with solar farm data 
 
 ## Main Findings
 
