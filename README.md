@@ -4,9 +4,9 @@ Author: Mary Rachel Keville
 
 ## Purpose of repository
 
-The purpose of this repository is to compile data on groundwater and solar farms in Upstate New York. In particular, this repository focuses on understanding the proxmity of individual water wells on private property to **existing** solar projects.
-Solar farms are an up-and-coming source of clean energy, which is vital to the nation's adoption of clean energy initatives. However, solar farms pose their own environmental drawbacks - land is often clear cut to make way for the panels, and the panels themselves are coated in chemicals that could contaminate the local groundwater. 
-Groundwater is a vital source of freshwater for millions in the United States, and many who live in rural areas rely on wells to access groundwater. The construction of solar farms could threaten the potability of the groundwater resources of rual areas.
+The purpose of this repository is to compile data on groundwater and solar farms in Upstate New York. 
+
+In particular, this repository focuses on understanding the proxmity of individual water wells on private property to **existing** solar projects. Solar farms are an up-and-coming source of clean energy, which is vital to the nation's adoption of clean energy initatives. However, solar farms pose their own environmental drawbacks - land is often clear cut to make way for the panels, and the panels themselves are coated in chemicals that could contaminate the local groundwater. Groundwater is a vital source of freshwater for millions in the United States, and many who live in rural areas rely on wells to access groundwater. The construction of solar farms could threaten the potability of the groundwater resources of rual areas.
 
 The goal of this repository is not to dissuade rural stakeholders and decisionmakers from adopting solar energy, but to make informed choices on the construction of solar farms for the best possible environmental and public health outcomes.
 
@@ -33,9 +33,9 @@ The goal of this repository is not to dissuade rural stakeholders and decisionma
 
 - Water wells data from the New York GIS Clearinghouse
     - Data on locations of water wells across New York State (last updated June 2021)
-        - Notes: 
-            a. Dataset excludes well data from Nassau, Suffolk, Kings, and Queens counties (DEC Region 1)
-            b. Data points may fall outside Census designated boundaries because of partial address data
+        - Notes:
+            - Dataset excludes well data from Nassau, Suffolk, Kings, and Queens counties (DEC Region 1)
+            - Data points may fall outside Census designated boundaries because of partial address data
     - File name: WellWaterProgram.zip
     - How to access:
         1. Visit the New York GIS Clearinghouse at https://gis.ny.gov/gisdata/inventories/details.cfm?DSID=1203
@@ -93,6 +93,7 @@ The goal of this repository is not to dissuade rural stakeholders and decisionma
 ## Further Analysis
 
 Futher analysis of this topic could examine the other environmental impacts of potential solar farm construction, using groundwater vulnerability assessment procedures as discussed by Focazio et al. (2002). 
+
 This could include:
     - Mapping out the use of land by property line to understand impact on residents
     - Mapping out the topography and vegetation of the land to understand impact on the local environment (such as increased stormwater runoff and reduction of tree cover)
