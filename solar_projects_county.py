@@ -21,6 +21,7 @@ solar_trim.to_csv('solar.csv')
 ## Reading in county FIPS code data as a .txt file
 
 county_fips=pd.read_csv('st36_ny_cou.txt',sep=",",header=None,names=['STATE','STATEFP','COUNTYFP','COUNTYNAME','CLASSFP'],dtype=str)
+county_fips[['County','Geography']]=county_fips['COUNTYNAME'].str.split(" ",n=1,expand=True)
 print(county_fips)
 
 #%%
@@ -29,6 +30,7 @@ print(county_fips)
 
 solar=pd.read_csv('solar.csv',dtype=str)
 
+solar=solar.merge(county_fips, on='County', how='left', validate=1:1,)
 
 #%%
 
