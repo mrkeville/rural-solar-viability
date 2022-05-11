@@ -20,4 +20,4 @@ import requests
 
 ## Reading in data and setting the index to tract level
 
-pd.read.csv("", index="")
+countydata=gpd.read_file("cb_2021_us_county_500k.zip")
