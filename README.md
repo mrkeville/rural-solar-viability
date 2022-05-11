@@ -11,24 +11,97 @@ understand the purpose of the analysis and reproduce it from the underlying raw 
 
 ## Purpose of repository: Providing analysis of basic information to support decision makers involved in solar farm propagation in rural Upstate NY
 
-The purpose of this repository is to make available high-level resources that provide information on key environmental factors impacted by solar farm installation, 
-with the purpose of helping stakeholders make informed decisions about the best place to put solar farms in rural areas
+The purpose of this repository is to compile data on groundwater and solar farms in Upstate New York. In particular, this repository focuses on understanding the proxmity of individual water wells on private property to **existing** solar projects.
+Solar farms are an up-and-coming source of clean energy, which is vital to the nation's adoption of clean energy initatives. However, solar farms pose their own environmental drawbacks - land is often clear cut to make way for the panels, and the panels themselves are coated in chemicals that could contaminate the local groundwater. 
+Groundwater is a vital source of freshwater for millions in the United States, and many who live in rural areas rely on wells to access groundwater. The construction of solar farms could threaten the potability of the groundwater resources of rual areas.
 
-## Data Sources:
+The goal of this repository is not to dissuade rural stakeholders and decisionmakers from adopting solar energy, but to make informed choices on the construction of solar farms for the best possible environmental and public health outcomes.
 
-1. https://waterdata.usgs.gov/nwis/gwExplanation
-https://waterdata.usgs.gov/ny/nwis/uv/?site_no=424859073585501&PARAmeter_cd=72019,62610,62611
-⋅⋅1. Explanation of Groundwater Level Records https://pubs.usgs.gov/wdr/2005/wdr-wa-05-1/pdf/wa00103ADR2005_BookK.pdf
-https://help.waterdata.usgs.gov/tutorials/groundwater-data/how-do-i-access-real-time-groundwater-data
-https://data.ny.gov/Energy-Environment/Statewide-Solar-Projects-Beginning-2000/wgsj-jt5f
-    API: https://data.ny.gov/resource/wgsj-jt5f.json
-https://www.census.gov/data/datasets/time-series/demo/popest/2020s-counties-total.html#par_textimage_70769902
+### Inputs
+
+- Cartographic boundary data from the US Census Bureau
+    - How to access:
+        1. Visit https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html
+        2. Select the "2021" tab
+        3. Scroll to each geography type's section on the page, select "New York" from the shapefile dropdown menu, and save the zip file to the repository:
+            - Shapefiles:
+            
+               - Census Block Groups - 1:500,000 (state)
+                   - File name: cb_2021_36_bg_500k.zip
+                   - Select "New York State" from shapefile dropdown menu 
+               
+               - Counties - 1:500,000 (national)
+                   - File name: cb_2021_36_bg_500k.zip
+                   - National file is only available
+               
+               - County Subdivisions - 1:500,0000 (state)
+                   - File name: cb_2021_36_bg_500k.zip
+                   - Select "New York State" from shapefile dropdown menu
+
+- Water wells locations and attribute data from the New York GIS Clearinghouse
+    - File name: WellWaterProgram.zip
+    - How to access:
+        1. Visit https://gis.ny.gov/gisdata/inventories/details.cfm?DSID=1203
+        2. Under the "Data Set Name" column of the table, click "Water Wells", and save the zip file to the repository
+        3. Notes: 
+            a. Dataset excludes well data from Nassau, Suffolk, Kings, and Queens counties (DEC Region 1)
+            b. Data points may fall outside Census designated boundaries because of partial address data
+
+ - Solar project data from the NY-Sun Solar Program
+    - File name: Statewide_Solar_Projects_Beginning_2000.csv
+    - How to access: 
+        1. Visit https://data.ny.gov/Energy-Environment/Statewide-Solar-Projects-Beginning-2000/wgsj-jt5f
+        2. Click "Export" and select "CSV"
+
+### Scripts and Files
+
+- groundwater_solar_mapping.qgz
+    - Generates the .PNG map outputs using the Census, water well, and solar project data
+    - Filters
+    
+### Outputs
+
+- Map Image Files (.PNG)
+    - NYS_Schenectady County_BlockGroups.png: shows a map of New York State with county boundaries, with Schenectady County highlighted in brown and displaying the block groups of that county
+    - WaterWellProgram_NYS_County.png: shows a map of New York State with county boundaries, overlaid with well location data
+    - WaterWellProgram_NYS_Schenectady County_BlockGroups.png: shows a map of Schenectady County with block group boundaries, overlaid with well location data
+    - 
+
+## Running the repository
+
+
+
+
+
+
+## Main Findings
+
+
+## Further Analysis
+
+Futher analysis of this topic could examine the other environmental impacts of potential solar farm construction, using groundwater vulnerability assessment procedures as discussed by Focazio et al. (2002).
+could map out the use of land by property line, map out the topography of the land to understand the implications of solar farm construction on the 
+
+Wellwater data visualizations could be refined to shows the different attributes of each particular well (such as depth)
+
+
+
+
 ## Bibliography
 
-United States Geological Survey. (2019, February 29). Groundwater quality in principal aquifers of the nation, 1991–2010 completed. Groundwater Quality in Principal Aquifers of the Nation, 1991–2010 | U.S. Geological Survey. Retrieved April 30, 2022, from https://www.usgs.gov/mission-areas/water-resources/science/groundwater-quality-principal-aquifers-nation-1991-2010 
+Focazio, M.J., Reilly, T.E., Rupert, M.G., Helsel, D.R. (2002). *Assessing ground-water vulnerability to contamination: Providing scientifically defensible information for decision makers*. U.S. Geological Survey. https://doi.org/10.3133/cir1224
+
+United States Geological Survey. (2019, February 29). Groundwater quality in principal aquifers of the nation, 1991–2010 completed. Groundwater Quality in Principal Aquifers of the Nation, 1991–2010 | U.S. Geological Survey. Retrieved from https://www.usgs.gov/mission-areas/water-resources/science/groundwater-quality-principal-aquifers-nation-1991-2010 
 
 Ren, M., Qian, X., Chen, Y., Wang, T., &amp; Zhao, Y. (2022). Potential lead toxicity and leakage issues on lead halide perovskite photovoltaics. Journal of Hazardous Materials, 426, 127848. https://doi.org/10.1016/j.jhazmat.2021.127848 
 
-Nir, Sarah Maslin. “He Set Up a Big Solar Farm. His Neighbors Hated It.” The New York Times, 18 Mar. 2020. https://www.nytimes.com/2020/03/18/nyregion/solar-energy-farms-ny.html. 
+
+## Further Reading
+
+DeMola, Peter. "Town of Duanesburg delays vote on PILOT solar deal as questions percolate". The Daily Gazette, 30 December 2019. https://dailygazette.com/2019/12/30/town-of-duanesburg-delays-vote-on-pilot-solar-deal-as-questions-percolate/
+
+Nir, Sarah Maslin. “He Set Up a Big Solar Farm. His Neighbors Hated It.”. The New York Times, 18 Mar. 2020. https://www.nytimes.com/2020/03/18/nyregion/solar-energy-farms-ny.html. 
 
 Rosen, Ellen. “As Demand for Green Energy Grows, Solar Farms Face Local Resistance”. The New York Times, 2 Nov 2021. https://www.nytimes.com/2021/11/02/business/solar-farms-resistance.html.
+
+Duanesburg Neighbors. (2022). *Duanesburg Neighbors*. https://duanesburgneighbors.com/
