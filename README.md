@@ -2,7 +2,9 @@
 
 Author: Mary Rachel Keville
 
-## Purpose of repository
+## Description of Repository
+
+### Purpose
 
 The purpose of this repository is to compile data on groundwater and solar farms in Upstate New York. 
 
@@ -14,7 +16,7 @@ The goal of this repository is not to dissuade rural stakeholders and decisionma
 
 - Cartographic boundary data from the US Census Bureau
     - How to access:
-        1. Visit the US Census Bureau https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html
+        1. Visit the US Census Bureau: https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html
         2. Select the "2021" tab
         3. Scroll to each geography type's section on the page, select "New York" from the shapefile dropdown menu, and save the zip file to the repository:
             - Shapefiles:
@@ -30,7 +32,12 @@ The goal of this repository is not to dissuade rural stakeholders and decisionma
                - County Subdivisions - 1:500,0000 (state)
                    - File name: cb_2021_36_cousub_500k.zip
                    - Select "New York State" from shapefile dropdown menu
-
+- County FIPS Code Data from the US Census Bureau
+    - How to access:
+        1. Vist the US Census Bureau: https://www.census.gov/library/reference/code-lists/ansi.html#county
+        2. Scroll to "County and County Equivalents" and select "New York" from the dropdown menu
+        3. A .txt file will appear
+        https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/OSLU4G
 - Water wells data from the New York GIS Clearinghouse
     - Data on locations of water wells across New York State (last updated June 2021)
         - Notes:
@@ -97,7 +104,15 @@ Year with Highest Number of Solar Projects Completed:
 
 ### Schenectady County:
 
-Number of Completed Solar Projects in
+Number of Completed Solar Projects in Schenectady County 2000-2021:
+Ranking in NYS:
+Town/City within Schenectady County with Most Completed Solar Projects:
+Year with Highest Number of Solar Projects Completed
+
+### Analysis of Maps
+
+
+
 ## Further Analysis
 
 Futher analysis of this topic could examine the other environmental impacts of potential solar farm construction, using groundwater vulnerability assessment procedures as discussed by Focazio et al. (2002). 
