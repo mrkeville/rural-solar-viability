@@ -41,29 +41,12 @@ print(solar_grouped)
 
 ## Merging solar_trim with county FIPS codes
 
-solar_trim=solar_trim.merge(county_fips, on='County', how='left', validate='m:1',indicator=True)
-print(solar_trim['_merge'].value_counts())
-solar_trim=solar_trim.drop(columns='_merge')
-solar_trim.to_csv('solar.csv')
-#%%
+solar_grouped=solar_grouped.merge(county_fips, on='County', how='left', validate='1:1',indicator=True)
+print(solar_grouped['_merge'].value_counts())
+solar_grouped=solar_grouped.drop(columns='_merge')
 
-## Sending solar.csv to a geopackage for joining onto the shapefiles in QGIS
-
-### Trimming the dataframe again
-
-solar_geo_trim=solar_trim[['GEOID','Number of Projects']]
-
-### joining onto the county shapefile
-
-solar_geo=gpd.read_file('cb_2021_us_county_500k.zip')
-
-solar_geo=solar_geo.merge(solar_geo_trim,on='GEOID',how='left',validate='1:m', indicator=True)
-
-print(solar_geo['_merge'].value_counts())
-
-solar_geo=solar_geo.drop(columns='_merge')
-
-solar_geo.to_file('solar_geo.gpkg',layer="solar_trim",index=False)
+print(solar_grouped)
+solar_grouped.to_csv('solar.csv', index=False)
 
 #%%
 
@@ -78,3 +61,23 @@ print(project_count.sum())
 
 sch_count=solar_trim.loc[solar_trim['County']=='Schenectady','Number of Projects'].sum()
 print(sch_count)
+
+#%%
+
+## Sending solar.csv to a geopackage for joining onto the shapefiles in QGIS
+
+### Trimming the dataframe again
+
+solar_geo_trim=solar_grouped[['GEOID','Number of Projects']]
+
+### joining onto the county shapefile
+
+solar_geo=gpd.read_file('cb_2021_us_county_500k.zip')
+
+solar_geo=solar_geo.merge(solar_geo_trim,on='GEOID',how='left',validate='1:m', indicator=True)
+
+print(solar_geo['_merge'].value_counts())
+
+solar_geo=solar_geo.drop(columns='_merge')
+
+solar_geo.to_file('solar_geo.gpkg',layer="solar_org",index=False)
