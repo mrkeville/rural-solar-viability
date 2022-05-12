@@ -32,7 +32,7 @@ The goal of this repository is not to dissuade rural stakeholders and decisionma
         1. Visit the US Census Bureau: https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html
         2. Select the "2021" tab
         3. Scroll to each geography type's section on the page, select "New York" from the shapefile dropdown menu, and save the zip file to the repository:
-            - 
+
 - County FIPS Code Data from the US Census Bureau
     - File name: st36_ny_cou.txt
     - How to access:
@@ -41,18 +41,18 @@ The goal of this repository is not to dissuade rural stakeholders and decisionma
         3. A .txt file will open in the browser; save that as a .txt file to the repository
       
 - Water wells data from the New York GIS Clearinghouse
+    - File name: WellWaterProgram.zip
     - Data on locations of water wells across New York State (last updated June 2021)
         - Notes:
             - Dataset excludes well data from Nassau, Suffolk, Kings, and Queens counties (DEC Region 1)
             - Data points may fall outside Census designated boundaries because of partial address data
-    - File name: WellWaterProgram.zip
     - How to access:
         1. Visit the New York GIS Clearinghouse at https://gis.ny.gov/gisdata/inventories/details.cfm?DSID=1203
         2. Under the "Data Set Name" column of the table, click "Water Wells", and save the zip file to the repository
 
  - Solar project data from the NY-Sun Solar Program
-    - Data on completed solar projects from 2000-2021 in New York State
     - File name: Statewide_Solar_Projects__Beginning_2000.csv
+    - Data on completed solar projects from 2000-2021 in New York State
     - How to access: 
         1. Visit the Open NY Data Portal at https://data.ny.gov/Energy-Environment/Statewide-Solar-Projects-Beginning-2000/wgsj-jt5f
         2. Click "Export" and select "CSV"
@@ -99,12 +99,12 @@ The goal of this repository is not to dissuade rural stakeholders and decisionma
 ### New York State Overview:
 
 Number of Completed Solar Projects in New York State 2000-2021: 165,336
-County with Most Completed Solar Projects: Nassau County
+County with Most Completed Solar Projects: Suffolk County (43,451)
 
 ### Schenectady County:
 
 Number of Completed Solar Projects in Schenectady County 2000-2021: 2,336
-Ranking for Number of Solar Projects in NYS: #8
+Ranking for Number of Solar Projects in NYS: #15
 Town/City within Schenectady County with Most Completed Solar Projects: Schenectady, NY
 Year with Highest Number of Solar Projects Completed: 2015
 

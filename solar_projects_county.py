@@ -14,8 +14,7 @@ import pandas as pd
 
 solar_org=pd.read_csv("Statewide_Solar_Projects__Beginning_2000.csv",dtype={'County':str})
 solar_trim=solar_org[["County",'Project ID',"Interconnection Date",'Number of Projects']]
-#solar_trim=solar_trim.set_index('County')
-#solar_trim.to_csv('solar.csv')
+
 #%%
 
 ## Reading in county FIPS code data as a .txt file
@@ -24,11 +23,23 @@ county_fips=pd.read_csv('st36_ny_cou.txt',sep=",",header=None,names=['STATE','ST
 county_fips[['County','Geography']]=county_fips['COUNTYNAME'].str.split(" ",n=1,expand=True)
 county_fips=county_fips.drop(columns='Geography')
 county_fips['GEOID']=county_fips['STATEFP']+county_fips['COUNTYFP']
+
 print(county_fips)
 
 #%%
 
-## Merging solar.csv with county FIPS codes
+## Grouping solar data by county
+
+solar_groupcounty=solar_trim.groupby('County')
+num_projects=['Number of Projects']
+solar_grouped=solar_groupcounty[num_projects].sum()
+solar_grouped=solar_grouped.sort_values(num_projects)
+
+print(solar_grouped)
+
+#%%
+
+## Merging solar_trim with county FIPS codes
 
 solar_trim=solar_trim.merge(county_fips, on='County', how='left', validate='m:1',indicator=True)
 print(solar_trim['_merge'].value_counts())
@@ -63,3 +74,7 @@ solar_geo.to_file('solar_geo.gpkg',layer="solar_trim",index=False)
 project_count=solar_trim['Number of Projects'].sum()
 print(project_count.sum())
 
+#generating the total count of completed solar projects in Schenectady County from 2000-2021
+
+sch_count=solar_trim.loc[solar_trim['County']=='Schenectady','Number of Projects'].sum()
+print(sch_count)
