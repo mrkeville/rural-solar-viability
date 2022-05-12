@@ -15,36 +15,38 @@ import pandas as pd
 solar_org=pd.read_csv("Statewide_Solar_Projects__Beginning_2000.csv",dtype={'County':str})
 solar_trim=solar_org[["County",'Project ID',"Interconnection Date",'Number of Projects']]
 #solar_trim=solar_trim.set_index('County')
-solar_trim.to_csv('solar.csv')
+#solar_trim.to_csv('solar.csv')
 #%%
 
 ## Reading in county FIPS code data as a .txt file
 
 county_fips=pd.read_csv('st36_ny_cou.txt',sep=",",header=None,names=['STATE','STATEFP','COUNTYFP','COUNTYNAME','CLASSFP'],dtype=str)
 county_fips[['County','Geography']]=county_fips['COUNTYNAME'].str.split(" ",n=1,expand=True)
+county_fips=county_fips.drop(columns='Geography')
+county_fips['GEOID']=county_fips['STATEFP']+county_fips['COUNTYFP']
 print(county_fips)
 
 #%%
 
 ## Merging solar.csv with county FIPS codes
 
-solar=pd.read_csv('solar.csv',dtype=str)
-
-solar=solar.merge(county_fips, on='County', how='left', validate=1:1,)
-
+solar_trim=solar_trim.merge(county_fips, on='County', how='left', validate='m:1',indicator=True)
+print(solar_trim['_merge'].value_counts())
+solar_trim=solar_trim.drop(columns='_merge')
+solar_trim.to_csv('solar.csv')
 #%%
 
 ## Sending solar.csv to a geopackage for joining onto the shapefiles in QGIS
 
 ### Trimming the dataframe again
 
-solar_geo_trim=solar_trim[['County','Number of Projects']]
+solar_geo_trim=solar_trim[['GEOID','Number of Projects']]
 
 ### joining onto the county shapefile
 
 solar_geo=gpd.read_file('cb_2021_us_county_500k.zip')
 
-solar_geo=solar_geo.merge(solar_geo_trim,on='County',how='left',validate='m:1', indicator=True)
+solar_geo=solar_geo.merge(solar_geo_trim,on='GEOID',how='left',validate='1:m', indicator=True)
 
 print(solar_geo['_merge'].value_counts())
 

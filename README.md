@@ -15,29 +15,31 @@ The goal of this repository is not to dissuade rural stakeholders and decisionma
 ### Inputs
 
 - Cartographic boundary data from the US Census Bureau
+    - Files:
+
+       - Census Block Groups - 1:500,000 (state)
+           - File name: cb_2021_36_bg_500k.zip
+           - Select "New York State" from shapefile dropdown menu 
+       
+       - Counties - 1:500,000 (national)
+           - File name: cb_2021_us_county_500k.zip
+           - National file is only available
+       
+       - County Subdivisions - 1:500,0000 (state)
+           - File name: cb_2021_36_cousub_500k.zip
+           - Select "New York State" from shapefile dropdown menu
     - How to access:
         1. Visit the US Census Bureau: https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html
         2. Select the "2021" tab
         3. Scroll to each geography type's section on the page, select "New York" from the shapefile dropdown menu, and save the zip file to the repository:
-            - Shapefiles:
-            
-               - Census Block Groups - 1:500,000 (state)
-                   - File name: cb_2021_36_bg_500k.zip
-                   - Select "New York State" from shapefile dropdown menu 
-               
-               - Counties - 1:500,000 (national)
-                   - File name: cb_2021_us_county_500k.zip
-                   - National file is only available
-               
-               - County Subdivisions - 1:500,0000 (state)
-                   - File name: cb_2021_36_cousub_500k.zip
-                   - Select "New York State" from shapefile dropdown menu
+            - 
 - County FIPS Code Data from the US Census Bureau
+    - File name: st36_ny_cou.txt
     - How to access:
         1. Vist the US Census Bureau: https://www.census.gov/library/reference/code-lists/ansi.html#county
         2. Scroll to "County and County Equivalents" and select "New York" from the dropdown menu
-        3. A .txt file will appear
-        https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/OSLU4G
+        3. A .txt file will open in the browser; save that as a .txt file to the repository
+      
 - Water wells data from the New York GIS Clearinghouse
     - Data on locations of water wells across New York State (last updated June 2021)
         - Notes:
@@ -58,16 +60,14 @@ The goal of this repository is not to dissuade rural stakeholders and decisionma
 ### Scripts and Files
 
 1. Run solar_projects_county.py
-    - Imports and cleans Statewide_Solar_Projects__Beginning_2000.csv, preparing it for use in the mapping stage of the repository
-    - Returns numbers on the number of solar projects:
-        - In New York State, by county
-        - In Schenectady County, by town and by year
-    - Removes all variables except
-        - County
-        - Project ID
-        - Interconnection Date
-        - Number of Projects
+    - Inputs:
+        - Statewide_Solar_Projects__Beginning_2000.csv
+        - st36_ny_cou.txt
+        - cb_2021_us_county_500k.zip
+    - Returns numbers on the number of solar projects in New York State
     - Generates a clean version of the original data, solar.csv
+    - Imports NYS county FIPS codes and joins onto solar.csv for mapping
+    - Generates a geopackage with solar projects and county variables
     
 2. Open groundwater_solar_mapping.qgz
     - Generates the .PNG map outputs using the Census, water well, and solar project data
