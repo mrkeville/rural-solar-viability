@@ -57,7 +57,7 @@ The goal of this repository is not to dissuade rural stakeholders and decisionma
         1. Visit the Open NY Data Portal at https://data.ny.gov/Energy-Environment/Statewide-Solar-Projects-Beginning-2000/wgsj-jt5f
         2. Click "Export" and select "CSV"
 
-### Scripts and Files
+### Scripts and Project Files
 
 1. Run solar_projects_county.py
     - Inputs:
@@ -82,35 +82,36 @@ The goal of this repository is not to dissuade rural stakeholders and decisionma
             - Schenectady County block group boundary layer
             - Formed from filtering cb_2021_36_bg_500k.shp to the county level
     - Imports and filters Water Well Program data shapefile to the county level
-    - Imports and filters solar.csv file generated in Step 1 to the appropriate county level
+    - Imports solar_geo.gpkg file generated in Step 1 
     
 ### Outputs
 
-- solar.csv: a cleaned version of Statewide_Solar_Projects__Beginning_2000.csv
+- solar.csv: a cleaned version of Statewide_Solar_Projects__Beginning_2000.csv with county FIPS code data joined
+- solar_geo.gpkg: a geopackage joining solar farm data onto the county shapefile
 - Map Image Files
     - NYS_Schenectady County_BlockGroups.png: shows a map of New York State with county boundaries, with Schenectady County highlighted in brown and displaying the block groups of that county
     - WaterWellProgram_NYS_County.png: shows a map of New York State with county boundaries, overlaid with well location data
     - WaterWellProgram_NYS_Schenectady County_Towns_BlockGroups.png: shows a map of Schenectady County with county subdivision (towns and cities) and block group boundaries, overlaid with well location data
     - SolarFarm_NYS_County.png: shows a map of New York State with county boundaries, overlaid with solar farm data
-    - SolarFarm_NYS_Schenectady County_Towns_BlockGroups.png: shows a map of Schenectady County with county subdivision (towns and cities) and block group boundaries, overlaid with solar farm data 
 
 ## Main Findings
 
 ### New York State Overview:
 
 Number of Completed Solar Projects in New York State 2000-2021: 165,336
-County with Most Completed Solar Projects: 
-Year with Highest Number of Solar Projects Completed:
+County with Most Completed Solar Projects: Nassau County
 
 ### Schenectady County:
 
-Number of Completed Solar Projects in Schenectady County 2000-2021:
-Ranking in NYS:
-Town/City within Schenectady County with Most Completed Solar Projects:
-Year with Highest Number of Solar Projects Completed
+Number of Completed Solar Projects in Schenectady County 2000-2021: 2,336
+Ranking for Number of Solar Projects in NYS: #8
+Town/City within Schenectady County with Most Completed Solar Projects: Schenectady, NY
+Year with Highest Number of Solar Projects Completed: 2015
 
 ### Analysis of Maps
 
+The analysis of the NYS map overlaid with the water well data shows that a majority of the non-urban areas in the state have pre-existing wells for groundwater (with a notable dearth in the Adirondack Region).
+Drilling down to Schenectady County, we can see that a good deal of the county is covered by water wells. Overlaying the block group boundaries with the county subdivisions provides an indicator of urban vs rural area in this county - the City of Schenectady has more block groups of a smaller land area (indicating a higher population). Taking block groups as an indicator of population size, they gradually becoming larger in area moving towards the north and west of the city. As the number of block groups decreases, the number of well locations generally increases, supporting the idea that rural areas are more reliant on groundwater drawn from wells than their urban neighbors.
 
 
 ## Further Analysis
